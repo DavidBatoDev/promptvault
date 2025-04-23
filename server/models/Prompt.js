@@ -2,15 +2,18 @@
 import mongoose from "mongoose";
 
 const promptSchema = new mongoose.Schema({
-  title: {
+  name: {
     type: String,
     required: true
   },
-  prefix: {
+  description: {
     type: String,
     required: true
   },
-  tags: [String]
+  system_prompt: {
+    type: String,
+    required: true
+  }
 }, { timestamps: true });
 
-export default mongoose.model("Prompt", promptSchema);
+export default mongoose.model('Prompt', promptSchema);
