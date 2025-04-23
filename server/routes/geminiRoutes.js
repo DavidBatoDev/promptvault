@@ -1,6 +1,6 @@
 // server/routes/geminiRoutes.js
 import express from 'express';
-import { sendMessageToGemini } from '../controllers/geminiController.js';
+import { sendMessageToGemini } from '../controllers/geminiControllers.js';
 
 const router = express.Router();
 
