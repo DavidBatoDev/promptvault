@@ -36,11 +36,12 @@ export const getPromptById = async (req, res) => {
 // Update a prompt by ID
 export const updatePrompt = async (req, res) => {
   try {
+    const id = req.params.id;
     const { name, description, system_prompt } = req.body;
     const updatedPrompt = await Prompt.findByIdAndUpdate(
-      req.params.id,
-      { name, description, system_prompt },
-      { new: true }
+      id, // Find the prompt by ID
+      { name, description, system_prompt }, // Update the fields
+      { new: true } // Return the updated document
     );
     if (!updatedPrompt) return res.status(404).json({ message: 'Prompt not found' });
     res.status(200).json(updatedPrompt);
